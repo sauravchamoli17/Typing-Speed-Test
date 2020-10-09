@@ -51,7 +51,7 @@ function compareWords(str1,str2) {
         }
     })
     let errorWords = (words1.length - count);
-    
+
     // Words Metric 
     correct.style.display = "block";
     correct.innerText = " "+count+ " Correct Words!";
@@ -79,6 +79,8 @@ btn.addEventListener('click', function () {
     if (this.innerText == 'Start') {
         typeWords.disabled = false;
         typeWords.placeholder = "Start writing the above sentence here...";
+        correct.style.display = "none";
+        correct.style.display = "none";
         startTyping();
     }
     else if (this.innerText == 'Done') {
