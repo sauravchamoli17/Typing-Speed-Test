@@ -47,9 +47,16 @@ function compareWords(str1,str2) {
     
     words1.forEach(function (item, index) {
         if (item == words2[index]) {
-            count++;
+            count++; //Correct Words
         }
     })
+    let errorWords = (words1.length - count);
+    
+    // Words Metric 
+    correct.style.display = "block";
+    correct.innerText = " "+count+ " Correct Words!";
+    incorrect.style.display = "block";
+    incorrect.innerText = " "+errorWords+ " Incorrect Words!";
 }
 
 function endTyping() { 
