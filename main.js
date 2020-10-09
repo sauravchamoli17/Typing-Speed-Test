@@ -31,6 +31,7 @@ function startTyping() {
     let randomNumber = Math.floor(Math.random() * setOfWords.length);
     let date = new Date();
     msg.innerText = setOfWords[randomNumber];
+    msg.style.display = "block";
     startTime = date.getTime();
     btn.innerText = "Done";
 }
@@ -44,7 +45,7 @@ function compareWords(str1,str2) {
     let words1 = str1.split(" "); //Computer Generated Words
     let words2 = str2.split(" "); //User Generated Words
     let count = 0;
-    
+
     words1.forEach(function (item, index) {
         if (item == words2[index]) {
             count++; //Correct Words
@@ -69,23 +70,23 @@ function endTyping() {
     let wordCount = wordCounter(totalString);
     let speed = Math.round((wordCount / totalTime) * 60);
 
+    compareWords(msg.innerText, totalString);
+
     let message = "Your typing speed is " + speed + " words per minute!";
     msg.innerText = message;
-
-    compareWords(msg.innerText, totalString);
 }
 
 btn.addEventListener('click', function () {
     if (this.innerText == 'Start') {
         typeWords.disabled = false;
+        typeWords.value = "";
         typeWords.placeholder = "Start writing the above sentence here...";
         correct.style.display = "none";
-        correct.style.display = "none";
+        incorrect.style.display = "none";
         startTyping();
     }
     else if (this.innerText == 'Done') {
         typeWords.disabled = true;
-        typeWords.value = "";
         typeWords.placeholder = "Remember, practice makes the man perfect!";
         btn.innerText = "Start";
         endTyping();
