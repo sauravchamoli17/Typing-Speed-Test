@@ -36,10 +36,10 @@ function startTyping() {
     btn.innerText = "Done";
 }
 
- function wordCounter(str){
+function wordCounter(str){
     let response = str.split(" ").length;
     return response;
- }
+}
 
 function compareWords(str1,str2) {
     let words1 = str1.split(" "); //Computer Generated Words
