@@ -2,8 +2,8 @@
 
 ## Welcome! 👋
 
-![Design preview for the Project tracking intro component coding challenge](./preview.png)
+[Check out the live site here](https://sauravchamoli17.github.io/Typing-Speed-Test/)
 
-[Check out the solution here](https://sauravchamoli17.github.io/Typing-Speed-Test/)
+![Design preview for the Project tracking intro component coding challenge](./preview.png)
 
 Thanks for checking out this repository.
