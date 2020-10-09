@@ -23,25 +23,62 @@ const setOfWords = ["They desperately needed another drummer since the current o
 const msg = document.getElementById("text");
 const typeWords = document.getElementById("words");
 const btn = document.getElementById("action");
+const incorrect = document.getElementById("incorrect");
+const correct = document.getElementById("correct");
 let startTime, endTime;
 
 function startTyping() {
-    let randomNumber = Math.floor(Math.random()*setOfWords.length);
-    msg.innerText = setOfWords[randomNumber];
+    let randomNumber = Math.floor(Math.random() * setOfWords.length);
     let date = new Date();
+    msg.innerText = setOfWords[randomNumber];
     startTime = date.getTime();
     btn.innerText = "Done";
+}
+
+ function wordCounter(str){
+    let response = str.split(" ").length;
+    return response;
+ }
+
+function compareWords(str1,str2) {
+    let words1 = str1.split(" "); //Computer Generated Words
+    let words2 = str2.split(" "); //User Generated Words
+    let count = 0;
+    
+    words1.forEach(function (item, index) {
+        if (item == words2[index]) {
+            count++;
+        }
+    })
+}
+
+function endTyping() { 
+    let date = new Date();
+    endTime = date.getTime();
+    
+    let totalTime = ((endTime - startTime) / 1000);
+    let totalString = typeWords.value;
+    
+    let wordCount = wordCounter(totalString);
+    let speed = Math.round((wordCount / totalTime) * 60);
+
+    let message = "Your typing speed is " + speed + " words per minute!";
+    msg.innerText = message;
+
+    compareWords(msg.innerText, totalString);
 }
 
 btn.addEventListener('click', function () {
     if (this.innerText == 'Start') {
         typeWords.disabled = false;
-        typeWords.placeholder = "Write the sentence above here...";
+        typeWords.placeholder = "Start writing the above sentence here...";
         startTyping();
     }
     else if (this.innerText == 'Done') {
         typeWords.disabled = true;
-        this.innerText = "Start";
+        typeWords.value = "";
         typeWords.placeholder = "Remember, practice makes the man perfect!";
+        btn.innerText = "Start";
+        endTyping();
     }
 })
