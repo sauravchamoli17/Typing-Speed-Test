@@ -1,6 +1,7 @@
-# Typing Speed Test
 
 ## Welcome! 👋
+
+# Typing Speed Test
 
 [Check out the live site here](https://sauravchamoli17.github.io/Typing-Speed-Test/)
 
