@@ -35,15 +35,8 @@ function startTyping() {
     startTime = date.getTime();
     btn.innerText = "Done";
 }
- 
 
-
-function wordCounter(str){
-    let response = str.split(" ").length;
-    return response;
-}
-
-function compareWords(str1,str2) {
+function compareWords(str1, str2) {
     let words1 = str1.split(" "); //Computer Generated Words
     let words2 = str2.split(" "); //User Generated Words
     let count = 0;
@@ -94,3 +87,8 @@ btn.addEventListener('click', function () {
         endTyping();
     }
 })
+
+function wordCounter(str){
+    let response = str.split(" ").length;
+    return response;
+}
