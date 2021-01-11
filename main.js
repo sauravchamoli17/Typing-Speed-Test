@@ -35,6 +35,8 @@ function startTyping() {
     startTime = date.getTime();
     btn.innerText = "Done";
 }
+ 
+
 
 function wordCounter(str){
     let response = str.split(" ").length;
